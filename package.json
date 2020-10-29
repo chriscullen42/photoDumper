@@ -1,0 +1,23 @@
+{
+  "name": "photodumper",
+  "version": "0.0.1",
+  "description": "Dumps a image to hex list in text file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chriscullen42/photoDumper.git"
+  },
+  "author": "Chris Cullen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chriscullen42/photoDumper/issues"
+  },
+  "homepage": "https://github.com/chriscullen42/photoDumper#readme",
+  "dependencies": {
+    "commander": "^6.2.0",
+    "jimp": "^0.16.1"
+  }
+}
