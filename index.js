@@ -24,10 +24,10 @@ async function doIt(imageFile) {
   }
   // process the file
   let targetFile = path.join(path.dirname(imageFile), path.basename(imageFile, path.extname(imageFile)) + '.txt')
-  await dumpImage(image, imageFile, targetFile, 1, 0)
+  await dumpImage(image, imageFile, targetFile, 1, 6)
 }
 
 doIt(path.resolve("./sampleImage/sample1_6pc.png"))
   .then(() => {
-    console.log(done)
+    console.log("done")
   })
