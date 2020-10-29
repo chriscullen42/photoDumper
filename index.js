@@ -6,15 +6,20 @@ const program = new Command()
 const path = require("path")
 program.version('0.0.1')
 
-// program
-//   .option('-d, --debug', 'output extra debugging')
-//   .option('-s, --small', 'small pizza size')
-//   .option('-p, --pizza-type <type>', 'flavour of pizza')
+program
+  .command('dump <source>')
+  .description('Create a hex dump of the image file')
+  .option('-f, --format', 'output format')
+  .option('-x, --resize-x <width>', 'set the width')
+  .option('-y, --resize-y <height>', 'set the height')
+  .action((source) => {
+    doIt(source, cmdObj)
+      .then(() => {
+        console.log("done")
+      })
+  });
 
-
-// test - load a image and call dump
-
-async function doIt(imageFile) {
+async function doIt(imageFile, cmdObj) {
   const loadImage = require("./lib/loadImage")
   const dumpImage = require("./lib/dump")
   let image = await loadImage(imageFile)
@@ -24,10 +29,7 @@ async function doIt(imageFile) {
   }
   // process the file
   let targetFile = path.join(path.dirname(imageFile), path.basename(imageFile, path.extname(imageFile)) + '.txt')
-  await dumpImage(image, imageFile, targetFile, 1, 6)
+  await dumpImage(image, imageFile, targetFile, 1, cmdObj.format)
 }
 
-doIt(path.resolve("./sampleImage/sample1_6pc.png"))
-  .then(() => {
-    console.log("done")
-  })
+
