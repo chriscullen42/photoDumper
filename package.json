@@ -18,6 +18,7 @@
   "homepage": "https://github.com/chriscullen42/photoDumper#readme",
   "dependencies": {
     "commander": "^6.2.0",
+    "fs-extra": "^9.0.1",
     "jimp": "^0.16.1"
   }
 }
