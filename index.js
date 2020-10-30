@@ -10,8 +10,8 @@ program
   .command('dump <source>')
   .description('Create a hex dump of the image file')
   .option('-f, --format <fmt>' , 'output format')
-  .option('-x, --resize-x <width>', 'set the width')
-  .option('-y, --resize-y <height>', 'set the height')
+  .option('-x, --width <width>', 'set the width')
+  .option('-y, --height <height>', 'set the height')
   .action((source, cmdObj) => {
     console.log("Running the dump command")
     doIt(source, cmdObj)
@@ -23,7 +23,12 @@ program
 async function doIt(imageFile, cmdObj) {
   const loadImage = require("./lib/loadImage")
   const dumpImage = require("./lib/dump")
-  let image = await loadImage(imageFile)
+  let resize = {}
+  if(cmdObj.width || cmdObj.height) {
+    if(cmdObj.width) resize.width = cmdObj.width *1
+    if(cmdObj.height) resize.height = cmdObj.height *1
+  }
+  let image = await loadImage(imageFile, resize)
   if (image instanceof Error) {
     console.log("Could not load/resize image file\n%s", image.message)
     process.exit(1)
