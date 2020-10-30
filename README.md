@@ -26,9 +26,9 @@ dumpImage sample.png
 
 There are a number of options to alter the process applied to the image as follows:
 
-|short|long|parameter|description|
-|----|---|-------|--------|
-|-f|--format| <fmt>     |output format |
-|-x|--width| <width>    |set the width |
-|-y|--height| <height>  |set the height |
+|short|long           |parameter|description|
+|:--:|:----------| :--: |--------|
+|-f|--format| 1-6     |Write the pixel information in 1 of 6 formats, numbered from 1 to 6 |
+|-x|--width| pixels    |Sets the width in pixels of the image.  This will cause dumpImage to resize the image.  If you only specify the width, the height is calculated using the image aspect ratio.|
+|-y|--height| pixels  |Sets the height in pixels of the image in the same manner as `width`.|
 |-h|--help|             |display help for command |
