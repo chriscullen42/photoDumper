@@ -14,8 +14,8 @@
             "program": "${workspaceFolder}/index.js",
             "args": [
                 "dump",
-                "./sampleImage/psychedelic.jpg",
-                "-f","6"
+                "./sampleImage/fountain.jpg",
+                "-f","6","-u"
                 
             ]
         }
